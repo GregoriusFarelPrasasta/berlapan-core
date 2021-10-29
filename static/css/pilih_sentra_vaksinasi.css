@@ -1,0 +1,39 @@
+h1 {
+    text-align: center;
+}
+
+#formFields {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    text-align: center;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+}
+
+
+tr:nth-child(even) {
+    background-color: wheat;
+}
+
+tr:nth-child(odd) {
+    background-color: rgb(214, 214, 214);
+}
+
+#headRow {
+    background-color: white;
+}
+
+#divHeading {
+    width: 750px;
+}

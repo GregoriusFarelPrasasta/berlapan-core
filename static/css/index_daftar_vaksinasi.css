@@ -1,0 +1,40 @@
+#title {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    width: 750px;
+}
+
+#satu {
+    padding: 10px;
+    width: 1000px;
+}
+
+#dua {
+    padding: 10px;
+    width: 1000px;
+}
+
+#tiga {
+    padding: 10px;
+    width: 1000px;
+}
+
+#empat {
+    padding: 10px;
+    width: 1000px;
+}
+
+button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tombolDaftar {
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    text-align: center;
+}
