@@ -1,24 +1,59 @@
 from django.db import models
+from django.db.models.deletion import  CASCADE
+from django.db.models.fields import DateField
+from django.utils import tree
 
 # Create your models here.
 class JamTersedia(models.Model):
     jam = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.jam
+
 class TanggalTersedia(models.Model):
     tanggal = models.DateField()
-    list_of_jam_tersedia = models.ManyToManyField(JamTersedia)
 
-    def get_jam_tersedia(self):
-        return (self.list_of_jam_tersedia.all())
+    def __str__(self):
+        return str(self.tanggal)
+
+class Provinsi(models.Model):
+    provinsi = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.provinsi
+
+class KabupatenKota(models.Model):
+    provinsi = models.ForeignKey(Provinsi, on_delete=CASCADE, null=True)
+    kabupaten_kota = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.kabupaten_kota
+
 
 class SentraVaksinasi(models.Model):
-    provinsi = models.CharField(max_length=50)
-    kabupaten_kota = models.CharField(max_length=50)
-    alamat = models.TextField()
-    list_of_tanggal = models.ManyToManyField(TanggalTersedia)
+    provinsi = models.ForeignKey(Provinsi, on_delete=CASCADE, null=True)
+    kabupaten_kota = models.ForeignKey(KabupatenKota, on_delete=CASCADE, null=True)
+    alamat_sentra_vaksinasi = models.TextField()
 
-    def get_list_of_tanggal(self):
-        return(self.list_of_tanggal.all())
+    def __str__(self):
+        return self.alamat_sentra_vaksinasi + ", " + str(self.kabupaten_kota) + ", " + str(self.provinsi)
+
+class PesertaVaksinasi(models.Model):
+    nama = models.CharField(max_length=50)
+    tanggal_lahir = DateField()
+    nik = models.CharField(max_length=50)
+
+    alamat_sentra_vaksinasi = models.ForeignKey(SentraVaksinasi, on_delete=CASCADE, null=True)
+
+    tanggal_vaksinasi = models.ForeignKey(TanggalTersedia, on_delete=CASCADE, null=True)
+    jam_vaksinasi = models.ForeignKey(JamTersedia, on_delete=CASCADE, null=True)
+
+    PILIHAN_VAKSINASI_KE = (('1','1'), ('2','2'))
+    vaksinasi_ke = models.CharField(max_length=1, choices=PILIHAN_VAKSINASI_KE, null=True)
+
+    def __str__(self):
+        return self.nama
+    
 
 
 

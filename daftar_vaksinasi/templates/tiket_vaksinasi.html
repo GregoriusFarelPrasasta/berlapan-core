@@ -13,17 +13,18 @@
             <h1>Tiket Vaksinasi</h1>
         </div>
         <div class="container bg-warning rounded" id="biodataPeserta">
-            <h4>Nama : </h4>
-            <h4>Tanggal Lahir : </h4>
-            <h4>NIK : </h4>
+            <h4>Nama : {{result.nama}} </h4>
+            <h4>Tanggal Lahir : {{result.tanggal_lahir}} </h4>
+            <h4>NIK : {{result.nik}}</h4>
         </div>
             <div class="container bg-info rounded" id="lokasi">
             <h4>Lokasi Sentra Vaksinasi </h4>
-            <h6>-Provinsi : </h6>
-            <h6>-Kabupaten/Kota : </h6>
-            <h6>-Alamat : </h6>
-            <h4>Sesi : </h4>
-            <h4>Vaksinasi ke- : </h4>
+            <h6>-Provinsi : {{result.alamat_sentra_vaksinasi.provinsi}} </h6>
+            <h6>-Kabupaten/Kota : {{result.alamat_sentra_vaksinasi.kabupaten_kota}}  </h6>
+            <h6>-Alamat Sentra Vaksinasi : {{result.alamat_sentra_vaksinasi.alamat_sentra_vaksinasi}}</h6>
+            <h4>Tanggal Vaksinasi : {{result.tanggal_vaksinasi}} </h4>
+            <h4>Sesi : {{result.jam_vaksinasi}} </h4>
+            <h4>Vaksinasi ke- : {{result.vaksinasi_ke}} </h4>
         </div>
         <div class="container bg-danger rounded" id="persyaratan">
             <h4>Persyaratan Vaksinasi </h4>
@@ -36,7 +37,9 @@
     <p>Tiket ini hanya berlaku di tanggal dan waktu yang tertera dalam tiket ini. Untuk itu,
         peserta vaksinasi diharapkan datang ke sentra vaksinasi tepat waktu.
     </p>
-    <button class="btn btn-success" id="backToHome">Kembali ke Home</button>
+    <button class="btn bg-success rounded" id="backToHome">
+        <a class="btn bg-success rounded" href="/">Kembali ke Home</a>
+    </button>
 
   </body>
 </html>
