@@ -1,8 +1,6 @@
 from django.db import models
 from django.db.models.deletion import  CASCADE
 from django.db.models.fields import DateField
-from django.utils import tree
-
 # Create your models here.
 class JamTersedia(models.Model):
     jam = models.CharField(max_length=20)
